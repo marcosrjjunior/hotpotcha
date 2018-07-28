@@ -29,7 +29,6 @@
     "jest": "20.0.4",
     "less": "^3.8.0",
     "less-loader": "^4.1.0",
-    "microsoft-speech-browser-sdk": "^0.0.12",
     "node-sass": "^4.9.2",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",

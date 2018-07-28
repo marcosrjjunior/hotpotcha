@@ -1,31 +1,21 @@
-import React, { PropTypes, Component } from 'react';
-import SpeechRecognition from 'react-speech-recognition';
-
-const propTypes = {
-  // Props injected by SpeechRecognition
-  transcript: PropTypes.string,
-  resetTranscript: PropTypes.func,
-  browserSupportsSpeechRecognition: PropTypes.bool
-}
+import React, { Component } from 'react'
+import SpeechRecognition from 'react-speech-recognition'
 
 class Speech extends Component {
-	render() {
-        const { transcript, resetTranscript, browserSupportsSpeechRecognition } = this.props
+  render() {
+    const { transcript, resetTranscript, browserSupportsSpeechRecognition } = this.props
 
-        return (
-            <div className="Speech">
-                <p className="Speech-intro"></p>
-                adas
-                <span>asdasd{transcript}</span>
-            </div>
-        );
+    if (!browserSupportsSpeechRecognition) {
+      return null
     }
+
+    return (
+      <div>
+        <button onClick={resetTranscript}>Reset</button>
+        <span>{transcript}</span>
+      </div>
+    )
+  }
 }
 
-Speech.propTypes = propTypes
-
-const options = {
-  autoStart: false
-}
-
-export default SpeechRecognition(options)(Speech);
+export default SpeechRecognition(Speech);
