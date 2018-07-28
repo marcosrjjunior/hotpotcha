@@ -1,27 +1,20 @@
 import React, { Component } from "react";
 import './GameOver.scss';
 import parrot from '../../images/parrot.gif';
-import {
-  Link,
-  withRouter
-} from 'react-router-dom';
+import { LinkButton } from "../Utils/Buttons"
 
 class GameOver extends Component {
     render() {
         return (
             <div className="GameOver">
                 Game Over
-                
+
                 <img src={parrot} className="parrot" />
 
-                <button type="button" Class="button">
-                    <Link to="/">
-                        Start Again
-                    </Link>
-                </button>
+                <LinkButton to="/">Start Again</LinkButton>
             </div>
         )
     }
 }
 
-export default withRouter(GameOver);
+export default GameOver;

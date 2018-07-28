@@ -14,7 +14,6 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import Speech from './Speech';
 
 class App extends Component {
     constructor(props) {

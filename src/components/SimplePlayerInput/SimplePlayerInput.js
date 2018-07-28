@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import "./SimplePlayerInput.scss";
 import { Link } from "react-router-dom";
+import "./SimplePlayerInput.scss";
+import { TextBox } from "../Utils/Inputs";
 
 export class SimplePlayerInput extends Component {
     render() {
         return <div>
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
+            <TextBox placeholder="Player Name" />
+            <TextBox placeholder="Player Name" />
+            <TextBox placeholder="Player Name" />
+            <TextBox placeholder="Player Name" />
+            <TextBox placeholder="Player Name" />
             <Link to="rules">Rules</Link>
         </div>
     }
