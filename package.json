@@ -1,42 +1,16 @@
 {
-    "name": "starter",
-    "version": "0.0.0",
-    "scripts": {
-        "start": "webpack && webpack-dev-server --hot --inline"
-    },
-    "devDependencies": {
-        "@types/history": "*",
-        "@types/moment-timezone": "*",
-        "@types/prop-types": "*",
-        "@types/react": "*",
-        "@types/react-dom": "*",
-        "@types/react-hot-loader": "*",
-        "@types/react-router": "*",
-        "@types/webpack-env": "*",
-        "css-loader": "*",
-        "event-source-polyfill": "*",
-        "extract-text-webpack-plugin": "4.0.0-beta.0",
-        "file-loader": "*",
-        "history": "*",
-        "html-webpack-plugin": "*",
-        "injec-ts": "*",
-        "json-loader": "*",
-        "prop-types": "*",
-        "react": "*",
-        "react-dom": "*",
-        "react-hot-loader": "*",
-        "react-router": "*",
-        "style-loader": "*",
-        "ts-loader": "*",
-        "typescript": "*",
-        "typestyle": "*",
-        "uglifyjs-webpack-plugin": "*",
-        "url-loader": "*",
-        "url-mapper": "*",
-        "webpack": "*",
-        "webpack-cli": "*",
-        "webpack-dev-middleware": "*",
-        "webpack-dev-server": "*",
-        "webpack-hot-middleware": "*"
-    }
+  "name": "potcha",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
