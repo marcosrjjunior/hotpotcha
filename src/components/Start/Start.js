@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './Start.scss';
 import logo from '../../images/logo.png';
-import {
-  Route,
-  Link
-} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class Start extends Component {
@@ -14,8 +10,8 @@ class Start extends Component {
                 <div id="logo">
                 <img src={logo} className="App-logo" alt="logo" /> 
                 </div>
-                <button type="button" Class="button">
-                    <Link to="/select-players">
+                <button type="button" className="button">
+                    <Link to="/input-players">
                         New Game
                     </Link>
                 </button>
