@@ -5,20 +5,22 @@ import "./SimplePlayerInput.scss";
 export class SimplePlayerInput extends Component {
     constructor() {
         super();
-        this.state = { inputValues: ["", ""] }
+        this.state = { inputValues: ["", ""] };
     }
 
     render() {
         return <div>
             {this.state.inputValues.map((value, i) =>
-                <input key={i} 
-                    type="text" 
-                    value={value} 
-                    onChange={e => this.updateInputValue(e.target.value, i)} 
-                    placeholder={`Enter Player ${i}`} />
+                <div>
+                    <input key={i}
+                        type="text"
+                        value={value}
+                        onChange={e => this.updateInputValue(e.target.value, i)}
+                        placeholder={`Enter Player ${i + 1}`} />
+                </div>
             )}
             <button type="button" className="button">
-                <Link to="rules" onClick={() => this.props.onPlayersAdded(this.nonEmptyInputValues)}>Confirm</Link>
+                <Link to="rules" onClick={() => this.props.onPlayersSet(this.nonEmptyInputValues)}>Confirm</Link>
             </button>
         </div>
     }
