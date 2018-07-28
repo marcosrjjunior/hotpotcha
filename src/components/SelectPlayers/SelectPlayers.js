@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './SelectPlayers.scss';
 import microphone from '../../images/microphone.svg';
-import {
-  Route,
-  Link
-} from 'react-router-dom';
 
 class SelectPlayers extends Component {
 

@@ -8,6 +8,7 @@ import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 import GameStart from './components/GameStart/GameStart';
 import { AskRhyme } from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
+import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerInput";
 import GameOver from './components/GameOver/GameOver';
 import {
   BrowserRouter as Router,
@@ -19,13 +20,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-            <button onClick={this.recordAudio}>Record</button>
-            <Speech />
                 <Router>
                     <div>
                         <Route exact path="/" component={Start}/>
-                        <Route path="/select-players" component={SelectPlayers}/>
-                        <Route path="/player-name" component={PlayerName}/>
+                        <Route path="/input-players" component={SimplePlayerInput} />
                         <Route path="/rules" component={Rules}/>
                         <Route path="/game-start" component={GameStart}/>
                         <Route path="/throw-phone" component={ThrowPhone}/>
