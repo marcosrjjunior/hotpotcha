@@ -8,12 +8,11 @@ class PlayerName extends Component {
         let { transcript, startListening, stopListening } = this.props;
 
         return <div>
-            <p>Player name {this.transcript}</p>
+            <p>Player name {transcript}</p>
+            <div><button onMouseDown={() => startListening()} onMouseUp={() => stopListening()}>Listen</button></div>
             <Link to="/rules">Rules</Link>
-            <button onMouseDown={startListening} onMouseUp={stopListening}>Listen</button>
-            <div>{transcript}</div>
         </div>;
     }
 }
 
-export default SpeechRecognition(PlayerName);
+export default SpeechRecognition({ autoStart: false})(PlayerName);
