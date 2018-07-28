@@ -153,7 +153,7 @@ module.exports = {
               cacheDirectory: true,
             },
           },
-          // Sass support
+          // LESS support
           {
             test: /\.less$/,
             use: [
