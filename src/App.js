@@ -6,9 +6,8 @@ import { PlayerName } from './components/PlayerName/PlayerName';
 import { Rules } from './components/Rules/Rules';
 import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 import GameStart from './components/GameStart/GameStart';
-import { AskRhyme } from './components/AskRhyme/AskRhyme';
+import AskRhyme from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
-import microphone from './images/microphone.svg';
 import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerInput";
 import GameOver from './components/GameOver/GameOver';
 import {
@@ -18,6 +17,21 @@ import {
 import Speech from './Speech';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {rhyme: null};
+    }
+
+    updateState(data, value) {
+        console.log('updateState');
+
+        this.setState({
+            ...this.state,
+            rhyme: value
+        });
+    }
+
     render() {
         return (
             <div className="App">
@@ -28,9 +42,9 @@ class App extends Component {
                         <Route path="/rules" component={Rules}/>
                         <Route path="/game-start" component={GameStart}/>
                         <Route path="/throw-phone" component={ThrowPhone}/>
-                        <Route path="/ask-rhyme" component={AskRhyme}/>
+                        <Route path="/ask-rhyme" component={() => <AskRhyme updateState={() => this.updateState()} />} />
                         <Route path="/check-rhyme" component={CheckRhyme}/>
-                        <Route path="/game-over" component={GameOver}/>
+                        <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
                     </div>
                 </Router>
             </div>

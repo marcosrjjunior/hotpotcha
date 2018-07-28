@@ -4,16 +4,6 @@
 .SelectPlayers {
 	color: #ffffff;
 }
-.microphone-logo{
-	border-radius: 50%;
-	padding: 5%;
-	background-color: white;
-    width: 20%;
-    
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 #main-text{
 	margin-top: 10%;
 }
@@ -22,12 +12,3 @@
 	font-size: 100px;
 	
 }
-
-.microphone-logo:active {
-	animation: pulse 1s infinite ease-in-out alternate;
-  }
-
-@keyframes pulse {
-	from { transform: scale(0.8); }
-	to { transform: scale(1.2); }
-  }

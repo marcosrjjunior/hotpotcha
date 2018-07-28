@@ -17,7 +17,7 @@ Another Name is called and the phone is quickly thrown them  </li>
                 <li>The game ends when only 1 player is remaining </li>
 
                 </ol>
-            <button className="button"><Link to="game-start">Play</Link></button>
+            <button className="button"><Link to="ask-rhyme">Play</Link></button>
         </div>;
     }    
 }
