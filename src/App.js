@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './App.scss';
+import './App.less';
 
 class App extends Component {
   render() {
@@ -11,7 +13,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit <code>src/App.js</code> and save to reload.<br />
+          <span className="sassClass">Sass</span><br />
+          <span className="lessClass">Less</span>
         </p>
       </div>
     );
