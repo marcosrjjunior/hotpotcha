@@ -4,10 +4,11 @@ import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
 import './App.scss';
 import { PlayerName } from './components/PlayerName/PlayerName';
 import { Rules } from './components/Rules/Rules';
-import { GameStart } from './components/GameStart/GameStart';
 import ThrowPhone from './components/ThrowPhone/ThrowPhone';
+import GameStart from './components/GameStart/GameStart';
 import { AskRhyme } from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
+import GameOver from './components/GameOver/GameOver';
 import {
   BrowserRouter as Router,
   Route
@@ -30,6 +31,7 @@ class App extends Component {
                         <Route path="/throw-phone" component={ThrowPhone}/>
                         <Route path="/ask-rhyme" component={AskRhyme}/>
                         <Route path="/check-rhyme" component={CheckRhyme}/>
+                        <Route path="/game-over" component={GameOver}/>
                     </div>
                 </Router>
             </div>
