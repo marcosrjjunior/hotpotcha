@@ -14,7 +14,7 @@ class GameOver extends Component {
                 
                 <img src={parrot} className="parrot" />
 
-                <button type="button" Class="button">
+                <button type="button" className="button">
                     <Link to="/">
                         Start Again
                     </Link>

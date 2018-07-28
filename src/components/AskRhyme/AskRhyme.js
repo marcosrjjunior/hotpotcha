@@ -1,33 +1,22 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./AskRhyme.scss";
 
-class AskRhyme extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {ryhme: null};
-
-        this.handleChange = this.handleChange.bind(this);
+export default class AskRhyme extends Component {
+    constructor() {
+        super();
+        this.state = { ryhme: "" };
     }
 
-	handleChange(event) {
-		this.setState({ryhme: event.target.value});
-	}
-
-	selectRhyme() {
-        this.props.updateState('ryhme', this.state.ryhme);
-        this.props.history.push('game-start');
-	}
+    updateRhyme(rhyme) {
+        this.setState({ rhyme });
+    }
 
     render() {
         return <div>
             <p>Choose a Word to Ryhme</p>
-
-            <input name="ryhme" onChange={this.handleChange} />
-
-            <button onClick={() => this.selectRhyme()}>Begin</button>
+            <input name="ryhme" onChange={e => this.updateRhyme(e.target.value)} />
+            <Link to="game-start" onClick={() => this.props.onRhymeSet(this.state.rhyme)}>Begin</Link>
         </div>
     }
 }
-
-export default withRouter(AskRhyme);

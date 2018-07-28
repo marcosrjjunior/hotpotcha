@@ -10,7 +10,7 @@ import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerIn
 import Start from './components/Start/Start.js';
 import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 
-class AppModel {
+class GameModel {
     players = [];
     rhyme = null;
 }
@@ -18,23 +18,24 @@ class AppModel {
 class App extends Component {
     constructor() {
         super();
-        this.state = new AppModel();
+        this.state = new GameModel();
     }
 
     render() {
+        console.log(this.state);
         return (
             <div className="App">
                 <Router>
                     <div>
-                        <Route exact path="/" component={Start}/> 
-                        <Route path="/input-players" component={() => 
-                            <SimplePlayerInput onPlayersAdded={players => this.setPlayers(players)} /> }/>
-                        <Route path="/rules" component={Rules}/>
-                        <Route path="/game-start" component={GameStart}/>
-                        <Route path="/throw-phone" component={ThrowPhone}/>
-                        <Route path="/ask-rhyme" component={() => 
-                            <AskRhyme updateState={() => this.setRhyme()} />} />
-                        <Route path="/check-rhyme" component={CheckRhyme}/>
+                        <Route exact path="/" component={Start} />
+                        <Route path="/input-players" component={() =>
+                            <SimplePlayerInput onPlayersSet={players => this.setPlayers(players)} />} />
+                        <Route path="/rules" component={Rules} />
+                        <Route path="/game-start" component={GameStart} />
+                        <Route path="/throw-phone" component={ThrowPhone} />
+                        <Route path="/ask-rhyme" component={() =>
+                            <AskRhyme onRhymeSet={rhyme => this.setRhyme(rhyme)} />} />
+                        <Route path="/check-rhyme" component={CheckRhyme} />
                         <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
                     </div>
                 </Router>
@@ -46,10 +47,8 @@ class App extends Component {
         this.setState({ players });
     }
 
-    setRhyme(value) {
-        this.setState({
-            rhyme: value
-        });
+    setRhyme(rhyme) {
+        this.setState({ rhyme });
     }
 }
 
