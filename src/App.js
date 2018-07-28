@@ -8,6 +8,7 @@ import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 import GameStart from './components/GameStart/GameStart';
 import { AskRhyme } from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
+import microphone from './images/microphone.svg';
 import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerInput";
 import GameOver from './components/GameOver/GameOver';
 import {
