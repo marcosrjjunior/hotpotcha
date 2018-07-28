@@ -14,7 +14,7 @@ export default class AskRhyme extends Component {
 
     render() {
         return <div>
-            <p>Choose a Word to Ryhme</p>
+            <p id ="title=text">Choose a Word to Rhyme</p>
             <input name="ryhme" onChange={e => this.updateRhyme(e.target.value)} />
             <Link to="game-start" onClick={() => this.props.onRhymeSet(this.state.rhyme)}>Begin</Link>
         </div>
