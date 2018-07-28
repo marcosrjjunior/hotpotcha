@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Start from './components/Start/Start.js';
+import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
 import { getRhyme } from './services/DatamuseService';
-import './App.css';
-import './App.scss';
-import './App.less';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 class App extends Component {
-  render() {
-    this.testDatamuse();
-    
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <Start />
-        <span className="sassClass">Sass</span><br />
-        <span className="lessClass">Less</span>
-      </div>
-    );
-  }
-  
+    render() {
+        this.testDatamuse();
+        return (
+            <div className="App">
+               <Router>
+                    <div>
+                        <Route exact path="/" component={Start}/>
+                        <Route path="/select-players" component={SelectPlayers}/>
+                    </div>
+                </Router>
+            </div>
+        );
+    }
+
   async testDatamuse() {
     console.log(await getRhyme("dog"));
   }
