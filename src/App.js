@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import Start from './components/Start/Start.js';
 import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
-import { getRhyme } from './services/DatamuseService';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 class App extends Component {
     render() {
-        this.testDatamuse();
         return (
             <div className="App">
                <Router>
@@ -22,10 +19,6 @@ class App extends Component {
             </div>
         );
     }
-
-  async testDatamuse() {
-    console.log(await getRhyme("dog"));
-  }
 }
 
 export default App;
