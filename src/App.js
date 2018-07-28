@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Start from './components/Start/Start.js';
 import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
+import './App.scss';
 import { PlayerName } from './components/PlayerName/PlayerName';
 import { Rules } from './components/Rules/Rules';
 import { GameStart } from './components/GameStart/GameStart';
