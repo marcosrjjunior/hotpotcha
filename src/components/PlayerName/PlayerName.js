@@ -5,14 +5,22 @@ import "./PlayerName.scss";
 
 class PlayerName extends Component {
     render() {
-        let { transcript, startListening, stopListening } = this.props;
+        let { finalTranscript, interimTranscript, stopListening } = this.props;
 
         return <div>
-            <p>Player name {transcript}</p>
-            <div><button onMouseDown={() => startListening()} onMouseUp={() => stopListening()}>Listen</button></div>
+            <p>Player name: {finalTranscript || interimTranscript}</p>
+            <div>
+                <button onMouseDown={() => this.start()} onMouseUp={stopListening}>Listen</button>
+            </div>
             <Link to="/rules">Rules</Link>
         </div>;
     }
+
+    start() {
+        let { resetTranscript, startListening } = this.props;
+        resetTranscript();
+        startListening();
+    }
 }
 
-export default SpeechRecognition({ autoStart: false})(PlayerName);
+export default SpeechRecognition({ autoStart: false })(PlayerName);
