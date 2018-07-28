@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './SelectPlayers.scss';
-import { Microphone } from "../Utils/Microphone";
+import Microphone from "../Utils/Microphone";
 
 class SelectPlayers extends Component {
     click(e) {
