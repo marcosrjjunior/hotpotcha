@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './SelectPlayers.scss';
-import {
-  Route,
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SelectPlayers extends Component {
 
@@ -11,6 +8,7 @@ class SelectPlayers extends Component {
         return (
             <div className="SelectPlayers">
                 <p>SelectPlayers</p>
+                <Link to="player-name">Player Name</Link>
             </div>
         );
     }
