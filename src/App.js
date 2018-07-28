@@ -19,8 +19,6 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-            <button onClick={this.recordAudio}>Record</button>
-            <Speech />
                 <Router>
                     <div>
                         <Route exact path="/" component={Start}/>
