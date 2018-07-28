@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Start from './components/Start/Start.js';
+import './App.css';
+import './App.scss';
+import './App.less';
 
 class App extends Component {
   render() {
@@ -13,6 +15,8 @@ class App extends Component {
         </header>
         <p className="App-intro">
           <Start />
+          <span className="sassClass">Sass</span><br />
+          <span className="lessClass">Less</span>
         </p>
       </div>
     );
