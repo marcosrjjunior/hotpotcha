@@ -11,12 +11,15 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import Speech from './Speech';
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-               <Router>
+            <button onClick={this.recordAudio}>Record</button>
+            <Speech />
+                <Router>
                     <div>
                         <Route exact path="/" component={Start}/>
                         <Route path="/select-players" component={SelectPlayers}/>
