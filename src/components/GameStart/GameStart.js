@@ -1,12 +1,20 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import "./GameStart.scss";
+import Countdown from './../Utils/Countdown.js';
 
-export class GameStart extends Component {
+class GameStart extends Component {
+    gameOver() {
+        this.props.history.push('game-over');
+    }
+
     render() {
-        return <div>
-            <p>Start game!</p>
-            <Link to="throw-phone">Throw phone</Link>
-        </div>
+        return (
+            <div>
+                <Countdown end={() => this.gameOver()} />
+            </div>
+        )
     }
 }
+
+export default withRouter(GameStart);

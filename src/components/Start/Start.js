@@ -5,7 +5,6 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 class Start extends Component {
 	render() {
