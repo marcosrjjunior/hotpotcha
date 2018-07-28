@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
-import Start from './components/Start/Start.js';
-import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.scss';
-import { PlayerName } from './components/PlayerName/PlayerName';
-import { Rules } from './components/Rules/Rules';
-import ThrowPhone from './components/ThrowPhone/ThrowPhone';
-import GameStart from './components/GameStart/GameStart';
 import { AskRhyme } from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
-import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerInput";
 import GameOver from './components/GameOver/GameOver';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import Speech from './Speech';
+import GameStart from './components/GameStart/GameStart';
+import { Rules } from './components/Rules/Rules';
+import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerInput";
+import Start from './components/Start/Start.js';
+import ThrowPhone from './components/ThrowPhone/ThrowPhone';
+
+class AppModel {
+    players = [];
+}
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = new AppModel();
+    }
+
     render() {
         return (
             <div className="App">
                 <Router>
                     <div>
-                        <Route exact path="/" component={Start}/>
-                        <Route path="/input-players" component={SimplePlayerInput} />
+                        <Route exact path="/" component={Start}/> 
+                        <Route path="/input-players" component={() => 
+                            <SimplePlayerInput onPlayersAdded={players => this.addPlayer(players)} /> }/>
                         <Route path="/rules" component={Rules}/>
                         <Route path="/game-start" component={GameStart}/>
                         <Route path="/throw-phone" component={ThrowPhone}/>
@@ -34,6 +38,10 @@ class App extends Component {
                 </Router>
             </div>
         );
+    }
+
+    addPlayer(players) {
+        this.setState({ players })
     }
 }
 
