@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Start from './components/Start/Start.js';
 import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
 import './App.scss';
+
 import {
   BrowserRouter as Router,
   Route,
