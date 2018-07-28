@@ -5,7 +5,7 @@ import "./AskRhyme.scss";
 export class AskRhyme extends Component {
     render() {
         return <div>
-            <p>What rhymes with Cat</p>
+            <p id ="title=text">What rhymes with Cat</p>
             <Link to="check-rhyme">Check</Link>
         </div>
     }
