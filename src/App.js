@@ -4,7 +4,7 @@ import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
 import { PlayerName } from './components/PlayerName/PlayerName';
 import { Rules } from './components/Rules/Rules';
 import { GameStart } from './components/GameStart/GameStart';
-import { ThrowPhone } from './components/ThrowPhone/ThrowPhone';
+import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 import { AskRhyme } from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
 import {
