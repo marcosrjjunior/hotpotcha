@@ -21,7 +21,7 @@ class AskRhyme extends Component {
 
     render() {
         return <div>
-            <p>Choose a Word to Ryhme</p>
+            <p id ="title=text">Choose a Word to Ryhme</p>
 
             <input name="ryhme" onChange={this.handleChange} />
 
