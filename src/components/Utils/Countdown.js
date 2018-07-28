@@ -4,7 +4,7 @@ import './Countdown.scss';
 class Countdown extends Component {
     constructor(props) {
         super(props);
-        this.state = {count: 10};
+        this.state = {count: props.time ? props.time : 10};
     }
 
     componentDidMount() {

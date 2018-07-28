@@ -5,13 +5,13 @@ import Countdown from './../Utils/Countdown.js';
 
 class GameStart extends Component {
     gameOver() {
-        this.props.history.push('game-over');
+        {/* this.props.history.push('game-over'); */}
     }
 
     render() {
         return (
             <div>
-                <Countdown end={() => this.gameOver()} />
+                <Countdown time={15} end={() => this.gameOver()} />
             </div>
         )
     }
