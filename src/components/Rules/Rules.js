@@ -6,7 +6,8 @@ export class Rules extends Component {
     render() {
         return <div>
             <p>Rules here</p>
-            <Link to="game-start">Play</Link>
+
+            <Link to="ask-rhyme">Next</Link>
         </div>;
     }    
 }

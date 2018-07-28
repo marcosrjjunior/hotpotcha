@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.scss';
-import { AskRhyme } from './components/AskRhyme/AskRhyme';
+import AskRhyme from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
 import GameOver from './components/GameOver/GameOver';
 import GameStart from './components/GameStart/GameStart';
@@ -12,6 +12,7 @@ import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 
 class AppModel {
     players = [];
+    rhyme = null;
 }
 
 class App extends Component {
@@ -27,21 +28,28 @@ class App extends Component {
                     <div>
                         <Route exact path="/" component={Start}/> 
                         <Route path="/input-players" component={() => 
-                            <SimplePlayerInput onPlayersAdded={players => this.addPlayer(players)} /> }/>
+                            <SimplePlayerInput onPlayersAdded={players => this.setPlayers(players)} /> }/>
                         <Route path="/rules" component={Rules}/>
                         <Route path="/game-start" component={GameStart}/>
                         <Route path="/throw-phone" component={ThrowPhone}/>
-                        <Route path="/ask-rhyme" component={AskRhyme}/>
+                        <Route path="/ask-rhyme" component={() => 
+                            <AskRhyme updateState={() => this.setRhyme()} />} />
                         <Route path="/check-rhyme" component={CheckRhyme}/>
-                        <Route path="/game-over" component={GameOver}/>
+                        <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
                     </div>
                 </Router>
             </div>
         );
     }
 
-    addPlayer(players) {
-        this.setState({ players })
+    setPlayers(players) {
+        this.setState({ players });
+    }
+
+    setRhyme(value) {
+        this.setState({
+            rhyme: value
+        });
     }
 }
 
