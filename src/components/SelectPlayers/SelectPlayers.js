@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import './SelectPlayers.scss';
-
-import {
-  Route,
-  Link
-} from 'react-router-dom';
+import microphone from '../../images/microphone.svg';
 
 class SelectPlayers extends Component {
     click(e) {
         e.preventDefault();
       }
-	render() {
-    console.log(this)
-        
+	render() {        
         return (
             <div className="SelectPlayers">
                 <p id="main-text">How Many Players?</p>
