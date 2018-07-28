@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass');
+@import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i');
+
 .sassClass {
     color: pink;
+}
+
+.App {
+    background-color: white;
+    color: 'white';
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Chivo';
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
 }

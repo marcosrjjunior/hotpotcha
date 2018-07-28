@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import microphone from '../../images/microphone.svg';
 import './SelectPlayers.scss';
-import { Link } from 'react-router-dom';
 
 class SelectPlayers extends Component {
-
-	render() {
+    render() {
         return (
             <div className="SelectPlayers">
-                <p>SelectPlayers</p>
-                <Link to="player-name">Player Name</Link>
+                <p id="main-text">How Many Players?</p>
+                <p id="PlayerNumber">0</p>
+                <img src={microphone} className="microphone-logo" alt="microphone" />
             </div>
         );
     }

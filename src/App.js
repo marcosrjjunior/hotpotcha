@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import Start from './components/Start/Start.js';
-import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
-import PlayerName from './components/PlayerName/PlayerName';
-import { Rules } from './components/Rules/Rules';
-import { GameStart } from './components/GameStart/GameStart';
-import ThrowPhone from './components/ThrowPhone/ThrowPhone';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AskRhyme } from './components/AskRhyme/AskRhyme';
 import { CheckRhyme } from './components/CheckRhyme/CheckRhyme';
-import {
-    BrowserRouter as Router,
-    Route
-} from 'react-router-dom';
+import { GameStart } from './components/GameStart/GameStart';
+import PlayerName from './components/PlayerName/PlayerName';
+import { Rules } from './components/Rules/Rules';
+import SelectPlayers from './components/SelectPlayers/SelectPlayers.js';
+import Start from './components/Start/Start.js';
+import ThrowPhone from './components/ThrowPhone/ThrowPhone';
+import './App.scss';
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                <button onClick={this.recordAudio}>Record</button>
                 <Router>
                     <div>
                         <Route exact path="/" component={Start} />
