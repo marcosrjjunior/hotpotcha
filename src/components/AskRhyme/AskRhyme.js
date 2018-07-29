@@ -16,19 +16,13 @@ export default class AskRhyme extends Component {
     }
 
     render() {
-        let nextButton = '';
-        if (this.state.textBoxValue.length > 1) {
-            nextButton = <LinkButton to="game-start" 
-            onClick={() => this.props.onRhymeSet(this.state.textBoxValue)}>Begin</LinkButton>;
-        }
+        let { textBoxValue } = this.state;
 
-        return (
-            <div>
-                <ArrowLeft link='/rules' />
-                <TitleText>Choose a Word to Rhyme</TitleText>
-                <TextBox onChange={e => this.updateRhyme(e.target.value)} />
-                {nextButton}
-            </div>
-        )
+        return <div>
+            <TitleText>Choose a Word to Rhyme</TitleText>
+            <TextBox onChange={e => this.updateRhyme(e.target.value)} />
+            {textBoxValue.length > 1 &&
+                <LinkButton to="throw-phone" onClick={() => this.props.onRhymeSet(textBoxValue)}>Begin</LinkButton>}
+        </div>
     }
 }

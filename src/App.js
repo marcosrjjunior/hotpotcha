@@ -25,6 +25,7 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <div className="App">
                 <Router>
@@ -35,12 +36,13 @@ class App extends Component {
                         <Route path="/rules" component={Rules} />
                         <Route path="/ask-rhyme" component={() =>
                             <AskRhyme onRhymeSet={rhyme => this.setRhyme(rhyme)} />} />
-                        <Route path="/throw-phone" component={ThrowPhone} />
+                        <Route path="/throw-phone" component={() =>
+                            <ThrowPhone currentPlayer={this.state.currentPlayer} />} />
                         <Route path="/game-start" component={() =>
                             <GameStart rhymingWords={this.state.rhymingWords}
                                 mostRecentAnswer={this.state.mostRecentAnswer}
                                 onAnswer={answer => this.setAnswer(answer)}
-                                onChangePlayer={() => this.onChangePlayer()} />} />
+                                onChangePlayer={() => this.changePlayer()} />} />
                         <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
                     </div>
                 </Router>
@@ -49,34 +51,39 @@ class App extends Component {
     }
 
     setPlayers(players) {
-        this.setState({ players });
+        this.setState({
+            players,
+            currentPlayer: this.getRandom(players)
+        });
     }
 
     setRhyme(rhyme) {
         this.setState({
             rhyme,
-            rhymingWords: getRhyme(rhyme),
+            rhymingWords: getRhyme(rhyme)
+        });
+    }
+
+    async setAnswer(mostRecentAnswer) {
+        let previousRhymes = await this.state.rhymingWords;
+        console.log(previousRhymes);
+        this.setState({
+            mostRecentAnswer,
+            rhymingWords: Promise.resolve(previousRhymes.filter(w => w.word.toUpperCase() !== mostRecentAnswer.toUpperCase()))
+        });
+    }
+
+    changePlayer() {
+        let playersNotPlaying = this.state.players.filter(p => p !== this.state.currentPlayer);
+
+        this.setState({
+            currentPlayer: this.getRandom(playersNotPlaying),
             mostRecentAnswer: ""
         });
     }
 
-    setAnswer(mostRecentAnswer) {
-        this.setState({
-            mostRecentAnswer,
-            rhymingWords: Promise.resolve(async resolve =>
-                resolve((await this.state.rhymingWords).filter(w => w.toUpperCase() !== mostRecentAnswer.toUpperCase()))
-            )
-        });
-    }
-
-    onChangePlayer() {
-        let possiblePlayers = this.state.players.filter(p => p !== this.state.currentPlayer);
-        let currentPlayer = possiblePlayers[this.getRandomInt(possiblePlayers.length - 1)];
-        this.setState({ currentPlayer });
-    }
-
-    getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
+    getRandom(arr) {
+        return arr[Math.floor(Math.random() * Math.floor(arr.length - 1))];
     }
 }
 
