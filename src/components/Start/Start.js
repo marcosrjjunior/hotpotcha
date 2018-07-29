@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './Start.scss';
 import logo from '../../images/logo.png';
-import { Link } from 'react-router-dom';
 import { LinkButton } from "../Utils/Buttons";
+import './Start.scss';
 
 class Start extends Component {
 	render() {
