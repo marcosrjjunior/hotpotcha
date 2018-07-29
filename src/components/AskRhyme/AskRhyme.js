@@ -3,7 +3,6 @@ import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import { TitleText } from "../Utils/TitleText";
 import "./AskRhyme.scss";
-import ArrowLeft from "../Utils/ArrowLeft";
 
 export default class AskRhyme extends Component {
     constructor() {

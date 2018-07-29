@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import './App.scss';
 import AskRhyme from './components/AskRhyme/AskRhyme';
 import GameOver from './components/GameOver/GameOver';
@@ -25,27 +25,27 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state);
+        console.log(this.props.location);
+        let background = this.props.location.pathname === "/game-start"
+            ? "orangeBackground"
+            : "whiteBackground";
+
         return (
-            <div className="App">
-                <Router>
-                    <div>
-                        <Route exact path="/" component={Start} />
-                        <Route path="/input-players" component={() =>
-                            <SimplePlayerInput onPlayersSet={players => this.setPlayers(players)} />} />
-                        <Route path="/rules" component={Rules} />
-                        <Route path="/ask-rhyme" component={() =>
-                            <AskRhyme onRhymeSet={rhyme => this.setRhyme(rhyme)} />} />
-                        <Route path="/throw-phone" component={() =>
-                            <ThrowPhone currentPlayer={this.state.currentPlayer} />} />
-                        <Route path="/game-start" component={() =>
-                            <GameStart rhymingWords={this.state.rhymingWords}
-                                mostRecentAnswer={this.state.mostRecentAnswer}
-                                onAnswer={answer => this.setAnswer(answer)}
-                                onChangePlayer={() => this.changePlayer()} />} />
-                        <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
-                    </div>
-                </Router>
+            <div className={`App ${background}`}>
+                <Route exact path="/" component={Start} />
+                <Route path="/input-players" component={() =>
+                    <SimplePlayerInput onPlayersSet={players => this.setPlayers(players)} />} />
+                <Route path="/rules" component={Rules} />
+                <Route path="/ask-rhyme" component={() =>
+                    <AskRhyme onRhymeSet={rhyme => this.setRhyme(rhyme)} />} />
+                <Route path="/throw-phone" component={() =>
+                    <ThrowPhone currentPlayer={this.state.currentPlayer} />} />
+                <Route path="/game-start" component={() =>
+                    <GameStart rhymingWords={this.state.rhymingWords}
+                        mostRecentAnswer={this.state.mostRecentAnswer}
+                        onAnswer={answer => this.setAnswer(answer)}
+                        onChangePlayer={() => this.changePlayer()} />} />
+                <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
             </div>
         );
     }
@@ -66,7 +66,6 @@ class App extends Component {
 
     async setAnswer(mostRecentAnswer) {
         let previousRhymes = await this.state.rhymingWords;
-        console.log(previousRhymes);
         this.setState({
             mostRecentAnswer,
             rhymingWords: Promise.resolve(previousRhymes.filter(w => w.word.toUpperCase() !== mostRecentAnswer.toUpperCase()))
@@ -87,4 +86,14 @@ class App extends Component {
     }
 }
 
-export default App;
+let WrappedApp = withRouter(App);
+
+class Root extends Component {
+    render() {
+        return <Router>
+            <WrappedApp /> 
+        </Router>;
+    }
+}
+
+export default Root;
