@@ -1,19 +1,36 @@
 import React, { Component } from "react";
-import "./SimplePlayerInput.scss";
 import { Link } from "react-router-dom";
+import "./SimplePlayerInput.scss";
 
 export class SimplePlayerInput extends Component {
+    constructor() {
+        super();
+        this.state = { inputValues: ["", ""] };
+    }
+
     render() {
         return <div>
-            <p id="title-text">Enter Player Names</p>
-            <input type="text" placeholder="Enter Player One"/>
-            <input type="text" placeholder="Enter Player Two"/>
-            <input type="text" placeholder="Enter Player Two"/>
-            <input type="text" placeholder="Enter Player Three"/>
-            <input type="text" placeholder="Enter Player Four"/>
+            {this.state.inputValues.map((value, i) =>
+                <div>
+                    <input key={i}
+                        type="text"
+                        value={value}
+                        onChange={e => this.updateInputValue(e.target.value, i)}
+                        placeholder={`Enter Player ${i + 1}`} />
+                </div>
+            )}
             <button type="button" className="button">
-                <Link to="rules" >Confirm</Link>
+                <Link to="rules" onClick={() => this.props.onPlayersSet(this.nonEmptyInputValues)}>Confirm</Link>
             </button>
         </div>
+    }
+
+    updateInputValue(newValue, inputIndex) {
+        this.state.inputValues[inputIndex] = newValue;
+        this.setState({ inputValues: [...this.nonEmptyInputValues, ""] });
+    }
+
+    get nonEmptyInputValues() {
+        return this.state.inputValues.filter(v => v);
     }
 }
