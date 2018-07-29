@@ -7,18 +7,18 @@ import "./AskRhyme.scss";
 export default class AskRhyme extends Component {
     constructor() {
         super();
-        this.state = { ryhme: "" };
+        this.state = { textBoxValue: "" };
     }
 
     updateRhyme(rhyme) {
-        this.setState({ rhyme });
+        this.setState({ textBoxValue });
     }
 
     render() {
         return <div>
             <TitleText>Choose a Word to Rhyme</TitleText>
             <TextBox onChange={e => this.updateRhyme(e.target.value)} />
-            <LinkButton to="game-start" onClick={() => this.props.onRhymeSet(this.state.rhyme)}>Begin</LinkButton>
+            <LinkButton to="game-start" onClick={() => this.props.onRhymeSet(this.state.textBoxValue)}>Begin</LinkButton>
         </div>
     }
 }
