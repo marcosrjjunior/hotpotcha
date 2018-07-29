@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Microphone.scss';
-import microphone from '../../images/microphone.svg';
 import SpeechRecognition from "react-speech-recognition";
+import microphone from '../../images/microphone.svg';
+import './Microphone.scss';
 
 class Microphone extends Component {
     start() {
@@ -20,11 +20,13 @@ class Microphone extends Component {
 
     render() {
         return (
-            <img onContextMenu={e => e.preventDefault()} 
-                src={microphone} 
+            <img onContextMenu={e => e.preventDefault()}
+                src={microphone}
                 className="microphone-logo" alt="microphone"
-                onMouseDown={() => this.start()} 
+                onMouseDown={() => this.start()}
+                onTouchStart={() => this.start()}
                 onMouseUp={() => this.stop()}
+                onTouchEnd={() => this.stop()}
             />
         )
     }
