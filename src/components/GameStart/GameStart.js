@@ -43,7 +43,7 @@ class GameStart extends Component {
     render() {
         return (
             <div className="GameStart">
-                <Countdown time={10} end={() => this.gameOver()} />
+                <Countdown time={15} end={() => this.gameOver()} />
                 {this.props.mostRecentAnswer &&
                     <p className="white-text">✓ {this.props.mostRecentAnswer}</p>}
                 {this.state.error &&
