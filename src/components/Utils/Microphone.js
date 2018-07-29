@@ -11,20 +11,23 @@ class Microphone extends Component {
         startListening();
     }
 
-    render() {
-        let { finalTranscript, interimTranscript, stopListening } = this.props;
+    stop() {
+        let { finalTranscript, interimTranscript } = this.props;
 
+        this.props.stopListening();
+        this.props.request(finalTranscript || interimTranscript);
+    }
+
+    render() {
         return (
             <img onContextMenu={e => e.preventDefault()} 
                 src={microphone} 
                 className="microphone-logo" alt="microphone"
                 onMouseDown={() => this.start()} 
-                onMouseUp={stopListening}
+                onMouseUp={() => this.stop()}
             />
         )
     }
-
-    
 }
 
 export default SpeechRecognition({ autoStart: false })(Microphone);
