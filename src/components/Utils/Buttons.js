@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Buttons.scss";
 
-export class LinkButton extends Component {
+class LinkButtonComponent extends Component {
     render() {
-        let { to, children } = this.props;
-        return <Button>
-            <Link to={to}>{children}</Link>
-        </Button>
+        return <Button onClick={() => this.onClickHandler()}>{this.props.children}</Button>;
+    }
+
+    onClickHandler() {
+        let { to, onClick } = this.props;
+        onClick && onClick();
+        this.props.history.push(to);
     }
 }
+
+export const LinkButton = withRouter(LinkButtonComponent);
 
 export class Button extends Component {
     render() {
