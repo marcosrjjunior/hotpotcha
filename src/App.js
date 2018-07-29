@@ -35,12 +35,13 @@ class App extends Component {
                         <Route path="/rules" component={Rules} />
                         <Route path="/ask-rhyme" component={() =>
                             <AskRhyme onRhymeSet={rhyme => this.setRhyme(rhyme)} />} />
-                        <Route path="/throw-phone" component={ThrowPhone} />
+                        <Route path="/throw-phone" component={() =>
+                            <ThrowPhone currentPlayer={this.state.currentPlayer} />} />
                         <Route path="/game-start" component={() =>
                             <GameStart rhymingWords={this.state.rhymingWords}
                                 mostRecentAnswer={this.state.mostRecentAnswer}
                                 onAnswer={answer => this.setAnswer(answer)}
-                                onChangePlayer={() => this.onChangePlayer()} />} />
+                                onChangePlayer={() => this.changePlayer()} />} />
                         <Route path="/game-over" component={GameOver} word={this.state.rhyme} />
                     </div>
                 </Router>
@@ -49,14 +50,16 @@ class App extends Component {
     }
 
     setPlayers(players) {
-        this.setState({ players });
+        this.setState({
+            players,
+            currentPlayer: this.getRandom(players)
+        });
     }
 
     setRhyme(rhyme) {
         this.setState({
             rhyme,
-            rhymingWords: getRhyme(rhyme),
-            mostRecentAnswer: ""
+            rhymingWords: getRhyme(rhyme)
         });
     }
 
@@ -69,14 +72,17 @@ class App extends Component {
         });
     }
 
-    onChangePlayer() {
-        let possiblePlayers = this.state.players.filter(p => p !== this.state.currentPlayer);
-        let currentPlayer = possiblePlayers[this.getRandomInt(possiblePlayers.length - 1)];
-        this.setState({ currentPlayer });
+    changePlayer() {
+        let playersNotPlaying = this.state.players.filter(p => p !== this.state.currentPlayer);
+
+        this.setState({
+            currentPlayer: this.getRandom(playersNotPlaying),
+            mostRecentAnswer: ""
+        });
     }
 
-    getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
+    getRandom(arr) {
+        return arr[Math.floor(Math.random() * Math.floor(arr.length - 1))];
     }
 }
 

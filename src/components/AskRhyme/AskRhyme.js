@@ -18,7 +18,7 @@ export default class AskRhyme extends Component {
         return <div>
             <TitleText>Choose a Word to Rhyme</TitleText>
             <TextBox onChange={e => this.updateRhyme(e.target.value)} />
-            <LinkButton to="game-start" onClick={() => this.props.onRhymeSet(this.state.textBoxValue)}>Begin</LinkButton>
+            <LinkButton to="throw-phone" onClick={() => this.props.onRhymeSet(this.state.textBoxValue)}>Begin</LinkButton>
         </div>
     }
 }
