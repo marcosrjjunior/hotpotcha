@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 import { afterThrown } from "../../services/motion";
 import "./ThrowPhone.scss";
+import { LinkButton } from "../Utils/Buttons";
 
 class ThrowPhone extends Component {
+    constructor() {
+        super();
+        this.state = { showSkip: false };
+        setTimeout(() => this.setState({ showSkip: true }), 3000);
+    }
+
     render() {
-        afterThrown(() => this.props.history.push("ask-rhyme"))
+        afterThrown(() => setTimeout(() => this.props.history.push("game-start"), 2000))
         return <div>
             <p>Throw the phone to {this.props.currentPlayer}</p>
-            <Link to="game-start">Skip</Link> {/* allow manual navigation too */}
+            {this.state.showSkip && <LinkButton to="game-start">Skip</LinkButton>}
         </div>
     }
 }
 
-export default withRouter(ThrowPhone);
+export default ThrowPhone;

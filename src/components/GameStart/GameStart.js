@@ -46,7 +46,7 @@ class GameStart extends Component {
                 <Countdown time={15} end={() => this.gameOver()} />
                 <p>{this.props.mostRecentAnswer}</p>
                 {this.state.error &&
-                    <Incorrect message={"ohh noo, we don't have this word, keep trying"} />}
+                    <Incorrect message="ohh noo, we don't have this word, keep trying" />}
                 <Microphone request={word => this.request(word)} />
             </div>
         )
