@@ -1,7 +1,15 @@
 .text-box {      
-    border:none;
-    border-bottom: 3px solid #000000; 
+    height: 50px;
+    font-size: 15px;
+    padding: 0 4px;
+    border: none;
+    border-bottom: 3px solid #000000;
     color: #F7B02B;
+    text-transform: capitalize;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 ::placeholder {
