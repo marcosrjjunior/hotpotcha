@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { afterThrown } from "../../services/motion";
 import "./ThrowPhone.scss";
 import { LinkButton } from "../Utils/Buttons";
+import { withRouter } from "react-router-dom";
 
 class ThrowPhone extends Component {
     constructor() {
@@ -19,4 +20,4 @@ class ThrowPhone extends Component {
     }
 }
 
-export default ThrowPhone;
+export default withRouter(ThrowPhone);
