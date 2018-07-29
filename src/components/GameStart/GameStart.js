@@ -23,7 +23,7 @@ class GameStart extends Component {
             // TODO send this logic to a service
             let rhymingWords = await this.props.rhymingWords;
             if (!rhymingWords) return;
-            let match = rhymingWords.find(w => w.word === word);
+            let match = rhymingWords.find(w => w.word.toUpperCase() === word.toUpperCase());
 
             if (match) {
                 this.setState({ error: false });

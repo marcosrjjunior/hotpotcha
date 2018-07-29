@@ -61,9 +61,12 @@ class App extends Component {
     }
 
     setAnswer(mostRecentAnswer) {
-        this.setState({ mostRecentAnswer, rhymingWords: Promise.resolve(async resolve =>
-            resolve((await this.state.rhymingWords).filter(w => w !== mostRecentAnswer))
-        )});
+        this.setState({
+            mostRecentAnswer,
+            rhymingWords: Promise.resolve(async resolve =>
+                resolve((await this.state.rhymingWords).filter(w => w.toUpperCase() !== mostRecentAnswer.toUpperCase()))
+            )
+        });
     }
 
     onChangePlayer() {
