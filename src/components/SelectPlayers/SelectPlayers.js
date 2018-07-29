@@ -3,9 +3,6 @@ import './SelectPlayers.scss';
 import Microphone from "../Utils/Microphone";
 
 class SelectPlayers extends Component {
-    click(e) {
-        e.preventDefault();
-      }
 	render() {        
         return (
             <div className="SelectPlayers">
