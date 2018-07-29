@@ -3,6 +3,7 @@ import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import { TitleText } from "../Utils/TitleText";
 import "./AskRhyme.scss";
+import ArrowLeft from "../Utils/ArrowLeft";
 
 export default class AskRhyme extends Component {
     constructor() {
@@ -21,10 +22,13 @@ export default class AskRhyme extends Component {
             onClick={() => this.props.onRhymeSet(this.state.textBoxValue)}>Begin</LinkButton>;
         }
 
-        return <div>
-            <TitleText>Choose a Word to Rhyme</TitleText>
-            <TextBox onChange={e => this.updateRhyme(e.target.value)} />
-            {nextButton}
-        </div>
+        return (
+            <div>
+                <ArrowLeft link='/rules' />
+                <TitleText>Choose a Word to Rhyme</TitleText>
+                <TextBox onChange={e => this.updateRhyme(e.target.value)} />
+                {nextButton}
+            </div>
+        )
     }
 }
