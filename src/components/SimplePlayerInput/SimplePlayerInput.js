@@ -3,6 +3,7 @@ import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import "./SimplePlayerInput.scss";
 import { TitleText } from "../Utils/TitleText";
+import ArrowLeft from "../Utils/ArrowLeft";
 
 export class SimplePlayerInput extends Component {
     constructor() {
@@ -19,6 +20,8 @@ export class SimplePlayerInput extends Component {
 
         return (
             <div className="SimplePlayerInput">
+                <ArrowLeft link='/' />
+
                 <TitleText className="title">Add Your Team Mates</TitleText>
                 {this.state.inputValues.map((value, i) =>
                     <TextBox key={i}
