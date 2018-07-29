@@ -32,7 +32,7 @@ class GameStart extends Component {
                 setTimeout(() => this.props.history.push('throw-phone'), 1000);
             } else
                 this.setState({ error: true });
-     
+
 
             return;
         }
@@ -44,9 +44,10 @@ class GameStart extends Component {
         return (
             <div className="GameStart">
                 <Countdown time={15} end={() => this.gameOver()} />
-                <p>{this.props.mostRecentAnswer}</p>
+                {this.props.mostRecentAnswer &&
+                    <p className="white-text">✓ {this.props.mostRecentAnswer}</p>}
                 {this.state.error &&
-                    <Incorrect message="ohh noo, we don't have this word, keep trying" />}
+                    <Incorrect message="✖ ohh noo, we don't have this word, keep trying" />}
                 <Microphone request={word => this.request(word)} />
             </div>
         )
