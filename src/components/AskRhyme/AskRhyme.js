@@ -10,7 +10,7 @@ export default class AskRhyme extends Component {
         this.state = { textBoxValue: "" };
     }
 
-    updateRhyme(rhyme) {
+    updateRhyme(textBoxValue) {
         this.setState({ textBoxValue });
     }
 
