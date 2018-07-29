@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
-import "./SimplePlayerInput.scss";
 import { TitleText } from "../Utils/TitleText";
+import "./SimplePlayerInput.scss";
 
 export class SimplePlayerInput extends Component {
     constructor() {
@@ -11,11 +11,7 @@ export class SimplePlayerInput extends Component {
     }
 
     render() {
-        let nextButton = '';
-        if (this.state.inputValues.length > 2) {
-            nextButton = <LinkButton to="rules" 
-                    onClick={() => this.props.onPlayersSet(this.nonEmptyInputValues)}>Next</LinkButton>;
-        }
+        let validValues = this.nonEmptyValues(this.state.inputValues);
 
         return (
             <div className="SimplePlayerInput">
@@ -26,8 +22,8 @@ export class SimplePlayerInput extends Component {
                         onChange={e => this.updateInputValue(e.target.value, i)}
                         placeholder={`Enter Player ${i + 1}`} />
                 )}
-                {nextButton}
-                
+                {validValues.length >= 2 &&
+                    <LinkButton to="rules" onClick={() => this.props.onPlayersSet(validValues)}>Next</LinkButton>}
             </div>
         )
     }
@@ -35,23 +31,10 @@ export class SimplePlayerInput extends Component {
     updateInputValue(newValue, inputIndex) {
         let inputValues = this.state.inputValues;
         inputValues[inputIndex] = newValue;
-        this.setState({ inputValues: [...inputValues] }); 
-
-        let lastItemKey = inputValues.length-1;
-        let lastItem = inputValues[lastItemKey];
-
-        if (lastItem.length > 0 && this.state.inputValues.length < 4) {
-            this.setState({
-                inputValues: [...inputValues, ""]
-            }, () => {
-                if (lastItem.length > 0) {
-                    this.setState({ inputValues: [...inputValues, ""] });
-                }
-            })
-        }
+        this.setState({ inputValues: [...this.nonEmptyValues(inputValues), ""] });
     }
 
-    get nonEmptyInputValues() {
-        return this.state.inputValues.filter(v => v);
+    nonEmptyValues(values) {
+        return values.filter(v => v);
     }
 }
