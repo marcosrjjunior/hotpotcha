@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import "./SimplePlayerInput.scss";
 

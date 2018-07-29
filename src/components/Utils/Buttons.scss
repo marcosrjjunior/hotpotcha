@@ -1,5 +1,5 @@
 .button {
-	margin-top: 30%;
+	margin-top: 10%;
 	padding: 5px 50px 5px 50px; 
     background-color: white;
     color:#474D4D;
@@ -8,4 +8,9 @@
 	font-family: 'Overpass'; 
 	border-radius: 30px;
 	font-weight: bold;
+
+	a {
+		text-decoration: none;
+		color:#474D4D;
+	}
 }
