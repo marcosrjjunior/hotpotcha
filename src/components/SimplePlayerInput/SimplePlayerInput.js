@@ -12,12 +12,10 @@ export class SimplePlayerInput extends Component {
     render() {
         return <div>
             {this.state.inputValues.map((value, i) =>
-                <div>
-                    <TextBox key={i}
-                        value={value}
-                        onChange={e => this.updateInputValue(e.target.value, i)}
-                        placeholder={`Enter Player ${i + 1}`} />
-                </div>
+                <TextBox key={i}
+                    value={value}
+                    onChange={e => this.updateInputValue(e.target.value, i)}
+                    placeholder={`Enter Player ${i + 1}`} />
             )}
             <LinkButton to="rules" onClick={() => this.props.onPlayersSet(this.nonEmptyInputValues)}>Rules</LinkButton>
         </div>

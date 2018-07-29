@@ -3,6 +3,8 @@ import "./Inputs.scss";
 
 export class TextBox extends Component {
     render() {
-        return <input type="text" className="textBox" {...this.props} />
+        return <div>
+            <input type="text" className="textBox" {...this.props} />
+        </div>
     }
 }
