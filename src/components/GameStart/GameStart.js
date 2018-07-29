@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import "./GameStart.scss";
 import Countdown from './../Utils/Countdown.js';
 import Microphone from './../Utils/Microphone.js';
 import Incorrect from './../Utils/Incorrect.js';
-import { getRhyme } from './../../services/datamuse.js';
 
 class GameStart extends Component {
     constructor(props) {

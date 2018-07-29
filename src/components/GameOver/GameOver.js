@@ -9,7 +9,7 @@ class GameOver extends Component {
             <div className="GameOver">
                 Game Over
 
-                <img src={parrot} className="parrot" />
+                <img src={parrot} className="parrot" alt="Party Parrot" />
 
                 <LinkButton to="/">Start Again</LinkButton>
             </div>

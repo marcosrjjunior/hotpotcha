@@ -24,8 +24,9 @@ export class SimplePlayerInput extends Component {
     }
 
     updateInputValue(newValue, inputIndex) {
-        this.state.inputValues[inputIndex] = newValue;
-        this.setState({ inputValues: [...this.nonEmptyInputValues, ""] });
+        let inputValues = this.state.inputValues;
+        inputValues[inputIndex] = newValue;
+        this.setState({ inputValues: [...inputValues, ""] });
     }
 
     get nonEmptyInputValues() {
