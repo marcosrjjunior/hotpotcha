@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import "./SimplePlayerInput.scss";
+import { TitleText } from "../Utils/TitleText";
 
 export class SimplePlayerInput extends Component {
     constructor() {
@@ -11,6 +12,7 @@ export class SimplePlayerInput extends Component {
 
     render() {
         return <div>
+            <TitleText>Add Your Team Mates</TitleText>
             {this.state.inputValues.map((value, i) =>
                 <TextBox key={i}
                     value={value}

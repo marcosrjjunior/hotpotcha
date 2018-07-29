@@ -4,7 +4,7 @@ import "./Inputs.scss";
 export class TextBox extends Component {
     render() {
         return <div>
-            <input type="text" className="textBox" {...this.props} />
+            <input type="text" className="text-box" {...this.props} />
         </div>
     }
 }

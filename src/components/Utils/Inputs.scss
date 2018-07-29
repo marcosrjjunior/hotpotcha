@@ -1,3 +1,9 @@
-.textBox {
-    
+.text-box {      
+    border:none;
+    border-bottom: 3px solid #000000; 
+    color: #F7B02B;
+}
+
+::placeholder {
+    color: #F7B02B;
 }
