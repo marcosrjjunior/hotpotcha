@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { LinkButton } from "../Utils/Buttons";
 import "./Rules.scss";
+import ArrowLeft from "../Utils/ArrowLeft";
 
 export class Rules extends Component {
     render() {
         return <div>
+            <ArrowLeft link='/input-players' />
             <p>Rules here</p>
             <ol>
                 <li>Choose a word to ryhme </li>
