@@ -18,7 +18,7 @@ class GameStart extends Component {
     }
 
     gameOver() {
-        {/* this.props.history.push('game-over'); */}
+        this.props.history.push('game-over');
     }
 
     request(word) {
