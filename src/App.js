@@ -25,6 +25,7 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <div className="App">
                 <Router>
@@ -63,12 +64,12 @@ class App extends Component {
         });
     }
 
-    setAnswer(mostRecentAnswer) {
+    async setAnswer(mostRecentAnswer) {
+        let previousRhymes = await this.state.rhymingWords;
+        console.log(previousRhymes);
         this.setState({
             mostRecentAnswer,
-            rhymingWords: Promise.resolve(async resolve =>
-                resolve((await this.state.rhymingWords).filter(w => w.toUpperCase() !== mostRecentAnswer.toUpperCase()))
-            )
+            rhymingWords: Promise.resolve(previousRhymes.filter(w => w.word.toUpperCase() !== mostRecentAnswer.toUpperCase()))
         });
     }
 
