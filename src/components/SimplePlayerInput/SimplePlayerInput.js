@@ -40,7 +40,7 @@ export class SimplePlayerInput extends Component {
         let lastItemKey = inputValues.length-1;
         let lastItem = inputValues[lastItemKey];
 
-        if (lastItem.length > 0) {
+        if (lastItem.length > 0 && this.state.inputValues.length < 4) {
             this.setState({
                 inputValues: [...inputValues, ""]
             }, () => {
