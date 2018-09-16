@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import './App.scss';
+import './App.css';
 import AskRhyme from './components/AskRhyme/AskRhyme';
 import GameOver from './components/GameOver/GameOver';
 import GameStart from './components/GameStart/GameStart';

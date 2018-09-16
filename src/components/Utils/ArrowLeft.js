@@ -1,5 +1,5 @@
 import React from 'react';
-import './ArrowLeft.scss';
+import './ArrowLeft.css';
 import { Link } from "react-router-dom";
 
 const ArrowLeft = (props) => (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../images/logo.png';
 import { LinkButton } from "../Utils/Buttons";
-import './Start.scss';
+import './Start.css';
 
 class Start extends Component {
 	render() {

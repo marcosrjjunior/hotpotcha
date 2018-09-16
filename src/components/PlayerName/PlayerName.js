@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./PlayerName.scss";
+import "./PlayerName.css";
 import { TextBox } from "../Utils/Inputs";
 
 export class PlayerName extends Component {

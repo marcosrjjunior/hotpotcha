@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import "./GameStart.scss";
+import "./GameStart.css";
 import Countdown from './../Utils/Countdown.js';
 import Microphone from './../Utils/Microphone.js';
 import Incorrect from './../Utils/Incorrect.js';

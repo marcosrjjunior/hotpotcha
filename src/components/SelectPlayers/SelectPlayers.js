@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SelectPlayers.scss';
+import './SelectPlayers.css';
 import Microphone from "../Utils/Microphone";
 
 class SelectPlayers extends Component {

@@ -3,7 +3,7 @@ import ArrowLeft from "../Utils/ArrowLeft";
 import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import { TitleText } from "../Utils/TitleText";
-import "./SimplePlayerInput.scss";
+import "./SimplePlayerInput.css";
 
 export class SimplePlayerInput extends Component {
     constructor() {

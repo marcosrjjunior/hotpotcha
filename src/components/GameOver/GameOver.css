@@ -1,0 +1,9 @@
+.GameOver {
+  color: #f7b02b;
+  margin-top: 20%;
+}
+.GameOver .parrot {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15%;
+}

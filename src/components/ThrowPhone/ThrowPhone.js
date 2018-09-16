@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { afterThrown } from "../../services/motion";
-import "./ThrowPhone.scss";
+import "./ThrowPhone.css";
 import { LinkButton } from "../Utils/Buttons";
 import { withRouter } from "react-router-dom";
 

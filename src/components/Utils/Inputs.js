@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Inputs.scss";
+import "./Inputs.css";
 
 export class TextBox extends Component {
     render() {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import parrot from '../../images/parrot.gif';
 import { LinkButton } from "../Utils/Buttons";
-import './GameOver.scss';
+import './GameOver.css';
 
 class GameOver extends Component {
     render() {
