@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import './App.scss';
+import { Router, Route } from 'react-router-dom';
+import './App.css';
 import AskRhyme from './components/AskRhyme/AskRhyme';
 import GameOver from './components/GameOver/GameOver';
 import GameStart from './components/GameStart/GameStart';
@@ -9,6 +9,7 @@ import { SimplePlayerInput } from "./components/SimplePlayerInput/SimplePlayerIn
 import Start from './components/Start/Start.js';
 import ThrowPhone from './components/ThrowPhone/ThrowPhone';
 import { getRhyme } from "./services/datamuse";
+import createBrowserHistory from 'history/createBrowserHistory';
 
 class GameModel {
     players = [];
@@ -18,6 +19,8 @@ class GameModel {
     mostRecentAnswer = "";
 }
 
+const history = createBrowserHistory();
+
 class App extends Component {
     constructor() {
         super();
@@ -25,13 +28,8 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.props.location);
-        let background = this.props.location.pathname === "/game-start"
-            ? "orangeBackground"
-            : "whiteBackground";
-
         return (
-            <div className={`App ${background}`}>
+            <div className={`App whiteBackground`}>
                 <Route exact path="/" component={Start} />
                 <Route path="/input-players" component={() =>
                     <SimplePlayerInput onPlayersSet={players => this.setPlayers(players)} />} />
@@ -86,12 +84,11 @@ class App extends Component {
     }
 }
 
-let WrappedApp = withRouter(App);
 
 class Root extends Component {
     render() {
-        return <Router>
-            <WrappedApp /> 
+        return <Router history={history}>
+            <App /> 
         </Router>;
     }
 }

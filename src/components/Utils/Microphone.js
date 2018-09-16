@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SpeechRecognition from "react-speech-recognition";
 import microphone from '../../images/microphone.svg';
-import './Microphone.scss';
+import './Microphone.css';
 
 class Microphone extends Component {
     start() {

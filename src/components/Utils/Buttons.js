@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import "./Buttons.scss";
+import "./Buttons.css";
 
 class LinkButtonComponent extends Component {
     render() {

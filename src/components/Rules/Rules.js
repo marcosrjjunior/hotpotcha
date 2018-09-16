@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { LinkButton } from "../Utils/Buttons";
-import "./Rules.scss";
+import "./Rules.css";
 import ArrowLeft from "../Utils/ArrowLeft";
 
 export class Rules extends Component {

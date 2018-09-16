@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./CheckRhyme.scss";
+import "./CheckRhyme.css";
 
 export class CheckRhyme extends Component {
     render() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { LinkButton } from "../Utils/Buttons";
 import { TextBox } from "../Utils/Inputs";
 import { TitleText } from "../Utils/TitleText";
-import "./AskRhyme.scss";
+import "./AskRhyme.css";
 
 export default class AskRhyme extends Component {
     constructor() {
